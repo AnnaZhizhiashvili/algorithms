@@ -10,6 +10,7 @@ function binarySearch(arr, value) {
   return arr[middleIndex] === value ? middleIndex : -1;
 }
 
+
 // console.log(binarySearch([1, 3, 5, 7, 10, 20], 20));
 
 var searchInsert = function(nums, target) {
