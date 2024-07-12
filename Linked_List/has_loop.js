@@ -95,7 +95,6 @@ console.log(`\nHas loop after creating a loop? ${hasLoopResultAfterLoop}`);
 
 /*
     EXPECTED OUTPUT:
-    ----------------
     Original list:
     1
     2
