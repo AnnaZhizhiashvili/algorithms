@@ -92,12 +92,10 @@ class LinkedList {
             node.next = prev;
             prev = node;
             node = next;
-            console.log(prev?.value, node?.value, next?.value, "val next")
         }
         console.log("******************")
         lastNodeOfFirstUnreversedList.next = node
         headOfReversedList.next = node;
-        console.log(headOfReversedList.next, "headOfReversedList")
         this.printList()
     }
 
