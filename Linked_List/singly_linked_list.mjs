@@ -1,11 +1,11 @@
-class Node {
+export class Node {
     constructor(val) {
         this.val = val;
         this.next = null;
     }
 }
 
-class LinkedList {
+export class LinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
@@ -125,6 +125,15 @@ class LinkedList {
         }
 
         return this;
+    }
+    printList() {
+        console.log("io")
+        let temp = this.head;
+        while (temp!== null) {
+            console.log(temp.val + " -> "  );
+            temp = temp.next;
+        }
+        console.log('---');
     }
 
 

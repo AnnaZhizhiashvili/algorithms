@@ -96,6 +96,7 @@ class LinkedList {
         secondPointer.next = null;
     }
 
+
 }
 
 

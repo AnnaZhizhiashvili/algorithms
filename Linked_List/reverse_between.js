@@ -16,7 +16,6 @@ class LinkedList {
         let temp = this.head;
         let output = "";
         if (temp === null) {
-            console.log("empty");
             return;
         }
         while (temp !== null) {
@@ -26,7 +25,7 @@ class LinkedList {
                 output += " -> ";
             }
         }
-        console.log(output);
+        console.log(output)
     }
 
     getHead() {
@@ -61,53 +60,43 @@ class LinkedList {
     }
 
     reverseBetween(m, n) {
-        let curr = this.head;
-        for(let i = 0; i < m -1; i++) {
-            curr = curr.next;
+        if (this.head === null || m === n) return this;
+
+        const dummy = new Node(0);
+        dummy.next = this.head;
+        let prev = dummy;
+
+        // Move prev to the node just before the m-th node
+        for (let i = 0; i < m - 1; i++) {
+            prev = prev.next;
         }
-        let lastNodeOfFirstUnreversedList = curr;
-        let headOfReversedList = lastNodeOfFirstUnreversedList.next;
-        console.log(lastNodeOfFirstUnreversedList.value, "lastNodeOfFirstUnreversedList")
-        console.log(headOfReversedList.value, "headOfReversedList")
 
+        let current = prev.next; // m-th node
+        let next = current.next; // (m+1)-th node
 
-        for (let i = 0; i < n - m + 1; i++) {
-            curr = curr.next;
+        // Swap nodes in the segment from m to n
+        for (let i = 0; i < n - m; i++) {
+            current.next = next.next;
+            next.next = prev.next;
+            prev.next = next;
+            next = current.next;
         }
-        const lastNodeOfReversedList = curr;
-        const headOfSecondUnreversedList = lastNodeOfReversedList.next;
 
-        console.log(lastNodeOfReversedList.value, "lastNodeOfReversedList")
-        console.log(headOfSecondUnreversedList, "headOfSecondUnreversedList")
-
-        // let node = this.head;
-        // this.head = this.tale;
-        // this.tale = node;
-        let next;
-        let prev = null;
-        let node = headOfReversedList;
-        console.log("******************")
-        for(let i = 0; i < n - m; i++){
-            next = node.next;
-            node.next = prev;
-            prev = node;
-            node = next;
-        }
-        console.log("******************")
-        lastNodeOfFirstUnreversedList.next = node
-        headOfReversedList.next = node;
-        this.printList()
+        // Update the head of the list
+        this.head = dummy.next;
+        return this;
     }
-
 }
 
 
 
-let myLinkedList = new LinkedList(1);
+let myLinkedList = new LinkedList(0);
+myLinkedList.push(1);
 myLinkedList.push(2);
 myLinkedList.push(3);
 myLinkedList.push(4);
 myLinkedList.push(5);
+myLinkedList.push(6);
 
 console.log("Original list:");
 myLinkedList.printList();

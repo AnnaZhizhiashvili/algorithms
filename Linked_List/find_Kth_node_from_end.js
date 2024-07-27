@@ -1,60 +1,17 @@
-class Node {
-    constructor(value){
-        this.value = value;
-        this.next = null;
-    }
-}
+import { LinkedList} from './singly_linked_list.mjs';
 
-class LinkedList {
-    constructor(value) {
-        const newNode = new Node(value);
-        this.head = newNode;
-        this.tail = this.head;
-    }
 
-    printList() {
-        let temp = this.head;
-        while (temp !== null) {
-            console.log(temp.value);
-            temp = temp.next;
-        }
-    }
+let myLinkedList = new LinkedList();
+myLinkedList.push(1);
+myLinkedList.push(2);
+myLinkedList.push(3);
+myLinkedList.push(4);
+myLinkedList.push(5);
+myLinkedList.push(6);
 
-    getHead() {
-        if (this.head === null) {
-            console.log("Head: null");
-        } else {
-            console.log("Head: " + this.heaud.value);
-        }
-    }
 
-    getTail() {
-        if (this.tail === null) {
-            console.log("Tail: null");
-        } else {
-            console.log("Tail: " + this.tail.value);
-        }
-    }
 
-    makeEmpty() {
-        this.head = null;
-        this.tail = null;
-        this.length = 0;
-    }
-
-    push(value) {
-        const newNode = new Node(value);
-        if (!this.head) {
-            this.head = newNode;
-            this.tail = newNode;
-        } else {
-            this.tail.next = newNode;
-            this.tail = newNode;
-        }
-    }
-
-    // WRITE THE FINDKTFROMEND METHOD HERE //
-    findKthFromEnd(k) {
+myLinkedList.findKthFromEnd = function (k) {
         let slow = this.head;
         let fast = this.head;
         for(let i = 0; i < k; i++) {
@@ -72,16 +29,6 @@ class LinkedList {
         return slow;
 
     }
-
-}
-
-
-
-let myLinkedList = new LinkedList(1);
-myLinkedList.push(2);
-myLinkedList.push(3);
-myLinkedList.push(4);
-myLinkedList.push(5);
 
 console.log("Original list:");
 myLinkedList.printList();

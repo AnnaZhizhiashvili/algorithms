@@ -15,7 +15,7 @@ class LinkedList {
     printList() {
         let temp = this.head;
         while (temp !== null) {
-            console.log(temp.value);
+            console.log(temp.value + " =>");
             temp = temp.next;
         }
     }
@@ -52,30 +52,20 @@ class LinkedList {
     }
 
     removeDuplicates() {
-        // Create a Set to store unique values
-        const values = new Set();
-        // Initialize previous pointer as null
-        let previous = null;
-        // Initialize current pointer at head
-        let current = this.head;
-
-        // Iterate through the list
-        while (current !== null) {
-            // If value already exists in the set
-            if (values.has(current.value)) {
-                // Remove the duplicate node by updating previous' next
-                previous.next = current.next;
-                // Decrement list length
-                this.length -= 1;
-            } else {
-                // Add unique value to the set
-                values.add(current.value);
-                // Update previous pointer to current node
-                previous = current;
+            const values = new Set();
+            let current = this.head;
+            let prev = null;
+            while(current) {
+                if (values.has(current.value)) {
+                    prev.next = current.next;
+                    this.length -= 1;
+                }  else {
+                    values.add(current.value);
+                }
+                prev = current;
+                current = current.next;
             }
-            // Move current pointer to the next node
-            current = current.next;
-        }
+
     }
 
 }
