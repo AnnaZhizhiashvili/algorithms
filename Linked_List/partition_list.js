@@ -75,6 +75,7 @@ class LinkedList {
         // create pointers for these lists to add new nodes from the original List
         let firstList = new Node(null)
         let secondList = new Node(null)
+
         let firstPointer = firstList;
         let secondPointer = secondList;
         while(curr) {
