@@ -50,7 +50,6 @@ class LinkedList {
         }
         this.length++;
     }
-
     removeDuplicates() {
             const values = new Set();
             let current = this.head;

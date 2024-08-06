@@ -1,4 +1,4 @@
-class Node{
+export class Node{
     constructor(value){
         this.value = value;
         this.prev = null;
@@ -7,7 +7,7 @@ class Node{
 }
 
 
-class DoublyLinkedList {
+export class DoublyLinkedList {
     constructor(value) {
         const newNode = new Node(value);
         this.head = newNode;
@@ -144,4 +144,39 @@ class DoublyLinkedList {
         return temp;
     }
 
+    reverse() {
+        if (this.length === 0 || this.length === 1) return undefined;
+
+        // Swap head and tail
+        let current = this.head;
+        this.head = this.tail;
+        this.tail = current;
+
+        // Iterate through the list and swap next and prev for each node
+        let temp = null;
+        while (current !== null) {
+            // Swap next and prev pointers
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+
+            // Move to the next node (which is actually the previous node in the original list)
+            current = current.prev;
+        }
+
+        // At the end of the loop, temp will point to the new head's next node, so we need to correct the head and tail pointers
+        this.head.prev = null;
+        this.tail.next = null;
+
+        return this;
+    }
+
+
 }
+
+const l = new DoublyLinkedList(1);
+l.push(2)
+l.push(3)
+l.printList()
+console.log("****")
+l.printList();
