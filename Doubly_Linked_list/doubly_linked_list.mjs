@@ -174,9 +174,4 @@ export class DoublyLinkedList {
 
 }
 
-const l = new DoublyLinkedList(1);
-l.push(2)
-l.push(3)
-l.printList()
-console.log("****")
-l.printList();
+
