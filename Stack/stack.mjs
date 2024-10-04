@@ -10,6 +10,9 @@ class Stack {
         this.top = new Node(value);
         this.size = 0;
     }
+    isEmpty() {
+        return this.size === 0;
+    }
 
     push(value) {
         const newNode = new Node(value);
@@ -32,3 +35,26 @@ class Stack {
         return temp;
     }
 }
+
+function isBalancedParentheses(parentheses) {
+    const stack = new Stack();
+
+    for(let char of parentheses) {
+        if(char === '(') {
+            stack.push('(')
+        } else if (char === ')') {
+            if (stack.isEmpty) {
+                return false;
+            }
+            stack.pop()
+        }
+    }
+    return stack.isEmpty();
+}
+
+
+function sortStack(stack){
+
+
+}
+
