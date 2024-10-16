@@ -53,8 +53,3 @@ function isBalancedParentheses(parentheses) {
 }
 
 
-function sortStack(stack){
-
-
-}
-
