@@ -16,7 +16,9 @@ var strStr = function(haystack, needle) {
    return haystack.indexOf(needle)
 };
 
-// console.log(strStr("ississippi", "issip"));
+
+
+
 
 
 var isHappy = function(n) {
@@ -95,18 +97,44 @@ var isPalindromeRecursive = (input) => {
 }
 // console.log(isPalindrome('121'));
 
+//
+// var plusOne = function(digits) {
+//   for(let i = digits.length - 1; i>=0; i--) {
+//     if(digits[i] < 9) {
+//       digits[i]++;
+//       return digits;
+//     } else {
+//       digits[i] = 0;
+//     }
+//   }
+//   // in case input is [9,9] it's never gonna go into if and will never return, array will [0, 0], so we need to add 1 manually;
+//   digits.unshift(1);
+//   return digits;
+// };
+//
 
-var plusOne = function(digits) {
-  for(let i = digits.length - 1; i>=0; i--) {
-    if(digits[i] < 9) {
-      digits[i]++;
-      return digits;
-    } else {
-      digits[i] = 0;
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var addDigits = function(num) {
+    let editedNum = num;
+    let numArr = [];
+    while(true) {
+        let sum = 0;
+        editedNum.toString().split('').forEach(elem => {
+            sum+= + Number(elem);
+        });
+        if (sum <= 9) {
+            return sum;
+        } else {
+            editedNum = sum;
+        }
     }
-  }
-  // in case input is [9,9] it's never gonna go into if and will never return, array will [0, 0], so we need to add 1 manually;
-  digits.unshift(1);
-  return digits;
 };
 
+const addDigits = function (num) {
+
+}
+
+addDigits(22);
