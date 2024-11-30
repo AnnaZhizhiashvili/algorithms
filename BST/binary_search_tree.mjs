@@ -1,4 +1,4 @@
-class Node {
+export class Node {
     constructor(value) {
         this.value = value;
         this.left = null;
@@ -54,4 +54,17 @@ class BST {
         }
         return false;
     }
+    // isSymmetric(root) {
+    //     let temp = root;
+    //
+    //
+    //     while(true) {
+    //         if(temp.right !== temp.left) {
+    //             return false;
+    //         }
+    //
+    //     }
+    //
+    // }
+
 }
