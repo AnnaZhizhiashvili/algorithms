@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run DSA Java",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "DSA-Java",
+            "sourcePaths": ["src/main/java"],
+            "classPaths": ["bin"]
+        }
+    ]
+} 

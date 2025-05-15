@@ -38,6 +38,16 @@ class BST {
         }
     }
 
+    rInsert(value, currentNode) {
+        if(currentNode === null) return new Node(value)
+        if (value < currentNode.value) {
+            currentNode.left = this.rInsert(value, currentNode.left)
+        } else if(value > currentNode.value) {
+            currentNode.right = this.rInsert(value, currentNode.right)
+        }
+        return currentNode;
+    }
+
     contains(value){
         if(this.root === null) return false;
 
@@ -54,17 +64,32 @@ class BST {
         }
         return false;
     }
-    // isSymmetric(root) {
-    //     let temp = root;
-    //
-    //
-    //     while(true) {
-    //         if(temp.right !== temp.left) {
-    //             return false;
-    //         }
-    //
-    //     }
-    //
-    // }
+    rContains(value, currentNode) {
+        if(currentNode === null) return false;
+        if(value === currentNode.value) return true;
+
+        if(value <  currentNode.value) {
+            return this.rContains(value, currentNode.left)
+        } else {
+            return this.rContains(value, currentNode.right)
+        }
+    }
+
+    depthFirstValues(root) {
+        const stack = [root];
+        const values = [];
+        while(stack.length !== 0) {
+            let lastNodeInStack = stack[stack.length - 1];
+            values.push(lastNodeInStack)
+            if(lastNodeInStack.right) {
+                stack.push(lastNodeInStack.right)
+            }
+            if(lastNodeInStack.left) {
+                stack.push(lastNodeInStack.left)
+            }
+            stack.pop()
+        }
+        return values;
+    }
 
 }

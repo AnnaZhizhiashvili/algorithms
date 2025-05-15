@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "javac -d bin -sourcepath src/main/java src/main/java/Main.java src/main/java/SingleLinkedList/SingleLinkedList.java src/main/java/Stack/ValidParentheses.java",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+} 

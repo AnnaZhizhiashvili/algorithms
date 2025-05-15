@@ -247,3 +247,106 @@
 //     outerMemo[i] = 1;
 //   }
 // };
+
+
+// const factorial = function (n)  {
+//     if(n === 1) return 1;
+//     return n * factorial(n-1)
+// }
+// console.log(factorial(4))
+
+// const anagrams = (s1, s2) => {
+//     if(s1.length !== s2.length) return false;
+//     let count = {};
+//     for(let char of s1) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of s2) {
+//         if(!count[char]) {
+//             return false;
+//         }
+//         count[char]--;
+//     }
+//     return true;
+// };
+
+// const anagrams2 = (s1, s2) => {
+//     if(s1.length !== s2.length) return false;
+//     let count1 = {};
+//     let count2 = {};
+//     for(let i = 0; i < s1.length; i++) {
+//         count1[s1[i]] = (count1[s1[i]] || 0) + 1;
+//         count2[s2[i]] = (count2[s2[i]] || 0) + 1;
+//     }
+//     for(let key in count1) {
+//         if(count1[key] !== count2[key]) return false;
+//     }
+//     return true;
+// };
+
+// const anagrams3 = (s1, s2) => {
+//     if(s1.length !== s2.length) return false;
+
+//     let count1 = new Map();
+//     let count2 = new Map();
+
+//     for(let i = 0; i < s1.length; i++) {
+//         const mapValue1 = count1.get(s1[i]);
+//         const mapValue2 = count2.get(s2[i]);
+//         count1.set(s1[i], (mapValue1 ? mapValue1 + 1 : 1))
+//         count2.set(s2[i], (mapValue2 ? mapValue2 + 1: 1))
+//     }
+//     for (let [key, value] of  count1.entries()) {
+        
+//         if(count1.get(key) !== count2.get(key)) {
+//             return false;
+//         }
+//     }
+//     return true;
+
+// }
+
+// console.log(anagrams3("racecar", "carrace"))
+
+
+// twoSum = (nums, target) => {
+//     const hashMap = new Map();
+//     for(let i = 0; i < nums.length; i++) {
+//         hashMap.set(nums[i], i)
+//     }
+
+//     console.log(hashMap)
+
+//     for(let i = 0; i < nums.length; i++) {
+//         // nums[index] + nums[i] = target
+//         // nums[index] = target - nums[i]
+
+//         let index = hashMap.get(target - nums[i]);
+//         if(index !== undefined && index !== i) {
+//             return [index, i]
+//         }
+       
+//     }
+//     return []
+// }
+
+// console.log(twoSum([2,7,11,15], 9))
+
+
+const groupAnagrams = (strs) => {
+    const hashMap = new Map()
+    for(let str of strs) {
+        const key = str.split('').sort().join('')
+        console.log(key)
+        console.log(hashMap)
+        if(!hashMap.get(key)) {
+            hashMap.set(key, [str])
+        } else {
+            hashMap.get(key).push(str)
+        }
+    }
+    console.log(hashMap.values())
+    return [...hashMap.values()]
+}
+
+console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))

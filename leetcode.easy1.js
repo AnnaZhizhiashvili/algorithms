@@ -182,6 +182,28 @@
 
 // console.log(isValid("[({(())}[()])]"));
 
+// with stack
+// const isValid = (s) => {
+//     const stack = [];
+//     const map = {
+//       ')': '(',
+//       '}': '{',
+//       ']': '['
+//     };
+  
+//     for (let char of s) {
+//       if (char === '(' || char === '{' || char === '[') {
+//         stack.push(char);
+//       } else {
+//         if (stack.pop() !== map[char]) {
+//           return false;
+//         }
+//       }
+//     }
+  
+//     return stack.length === 0;
+//   };
+
 // var reverse = function (x) {
 //   let reversed = Math.abs(x).toString().split("").reverse();
 //   while (reversed[0] == 0) {
